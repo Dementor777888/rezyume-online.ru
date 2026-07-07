@@ -1,0 +1,21 @@
+{
+  "$description": "Резюме Онлайн — spacing tokens. Строгая 8px-сетка, 4px — полушаг для плотных пар иконка+текст.",
+  "space": {
+    "1": { "value": "4px",  "usage": "полушаг: зазор иконка/текст" },
+    "2": { "value": "8px" },
+    "3": { "value": "16px" },
+    "4": { "value": "24px" },
+    "5": { "value": "32px" },
+    "6": { "value": "48px" },
+    "7": { "value": "64px" },
+    "8": { "value": "96px", "usage": "межсекционные отступы лендинга" }
+  },
+  "layout": {
+    "container-max":   { "value": "1180px", "usage": "контентная ширина всех страниц сайта" },
+    "container-admin": { "value": "1240px", "usage": "кабинет администратора" },
+    "page-padding-desktop": { "value": "28-32px 40px" },
+    "page-padding-mobile":  { "value": "18-20px 16px" },
+    "sidebar-width":   { "value": "240-260px", "usage": "сайдбары каталогов (Образцы, База, Админ)" },
+    "detail-rail":     { "value": "300-330px", "usage": "правая sticky-колонка детальных страниц" }
+  }
+}

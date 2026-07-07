@@ -1,0 +1,53 @@
+{
+  "$description": "Резюме Онлайн — color tokens. Источник истины: tokens/colors.css. Правило: yellow = действие (CTA), green = бренд/навигация/успех (никогда CTA), blue = только иллюстрации/аватары (никогда UI-кнопки). Paid-акценты — только внутри премиальных шаблонов резюме.",
+  "brand": {
+    "green":       { "value": "#7CB342", "usage": "бренд, навигация, успех; НЕ текст на белом (2.6:1), НЕ CTA" },
+    "green-light": { "value": "#8BC34A", "usage": "hover зелёных кнопок, иллюстрации" },
+    "green-tint":  { "value": "#DCEDB9", "usage": "светло-зелёные панели/фоны" },
+    "green-dark":  { "value": "#3F6B22", "usage": "единственный зелёный, безопасный как фон под белым текстом (5.6:1) и как зелёный ТЕКСТ на белом" },
+    "yellow":      { "value": "#F5A623", "usage": "единственный action-цвет: CTA-кнопки, галочка логотипа; текст на нём — только --ink" },
+    "yellow-dark": { "value": "#E0921A", "usage": "hover/press CTA" },
+    "blue":        { "value": "#4A9FD4", "usage": "только иллюстрации/аватары; как фон — только с текстом blue-deep" },
+    "blue-tint":   { "value": "#E4F1F9", "usage": "голубой сайдбар бесплатных шаблонов; текст --ink (12:1) или blue-deep" },
+    "blue-deep":   { "value": "#2D6685", "usage": "читаемый синий для текста на blue-tint (5.3:1)" }
+  },
+  "neutral": {
+    "ink":           { "value": "#2B2B2B", "usage": "основной текст" },
+    "ink-secondary": { "value": "#5B6472", "usage": "вторичный текст (5.9:1 на белом)" },
+    "line":          { "value": "#E4E7EC", "usage": "hairline-границы, разделители, рамки инпутов" },
+    "bg":            { "value": "#FFFFFF" },
+    "bg-tint":       { "value": "#F7FAF2", "usage": "фон страниц (зеленовато-белый)" }
+  },
+  "paid": {
+    "blue":      { "value": "#2E5FE8", "usage": "текст-safe на белом (5.4:1); только премиальные шаблоны" },
+    "teal":      { "value": "#0E9C8A", "usage": "ТОЛЬКО заливки/бары (3.4:1 — не текст)" },
+    "teal-deep": { "value": "#0B7A6C", "usage": "текст-safe teal (5.2:1)" },
+    "graphite":  { "value": "#374151", "usage": "текст-safe (10:1)" }
+  },
+  "semantic": {
+    "surface-page":        { "value": "{neutral.bg}" },
+    "surface-card":        { "value": "{neutral.bg}" },
+    "surface-sunken":      { "value": "{neutral.bg-tint}" },
+    "surface-brand-panel": { "value": "{brand.green-tint}" },
+    "text-body":           { "value": "{neutral.ink}" },
+    "text-muted":          { "value": "{neutral.ink-secondary}" },
+    "text-on-brand":       { "value": "#FFFFFF" },
+    "border-default":      { "value": "{neutral.line}" },
+    "action-default":      { "value": "{brand.yellow}" },
+    "action-hover":        { "value": "{brand.yellow-dark}" },
+    "action-text":         { "value": "#2B2B2B" },
+    "success":             { "value": "{brand.green}" }
+  },
+  "ui-kit-extras": {
+    "$note": "Цвета, употребляемые в UI-ките сайта как литералы — при разработке заменить на токены:",
+    "ai-chip-bg":    { "value": "#FDF0DA", "usage": "фон бейджа 'AI · 99 ₽' и платных подсказок" },
+    "ai-chip-text":  { "value": "#8A5A0E", "usage": "текст на ai-chip-bg (5.5:1)" },
+    "ai-panel-bg":   { "value": "#FDF9F0", "usage": "фон платных карточек-предложений" },
+    "ai-panel-line": { "value": "#EBD9B4", "usage": "рамка платных карточек" },
+    "error-text":    { "value": "#B4451E", "usage": "текст ошибок (4.9:1 на белом)" },
+    "error-bg":      { "value": "#FBEDE7", "usage": "фон ошибок" },
+    "error-line":    { "value": "#F0C8B8" },
+    "green-tint-line": { "value": "#C6DF9E", "usage": "рамка зелёных tint-панелей" },
+    "telegram":      { "value": "#229ED9", "usage": "только карточка Telegram-бота в Поддержке" }
+  }
+}

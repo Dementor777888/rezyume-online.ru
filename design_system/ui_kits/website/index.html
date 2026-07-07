@@ -1,0 +1,160 @@
+<!-- @dsCard group="Website" viewport="1320x900" name="Сайт-приложение (16 экранов)" subtitle="Лендинг, конструктор, фото, галерея, экспорт, оплата, кабинет, вход, публичная страница, примеры, шаблоны, база резюме, статьи, FAQ, поддержка — десктоп/мобайл" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Резюме Онлайн — UI Kit сайта</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script src="image-slot.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; font-family: var(--font-sans); background: #E9ECE4; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-thumb { background: #C9CFC0; border-radius: 999px; border: 2px solid #E9ECE4; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script>window.DS = window.DesignSystem_7c7421; window.SITE = {};</script>
+<!-- resume templates (reused for previews) -->
+<script src="../resume-templates/resumeData.js"></script>
+<script type="text/babel" src="../resume-templates/templateParts.jsx"></script>
+<script type="text/babel" src="../resume-templates/TemplateStart.jsx"></script>
+<script type="text/babel" src="../resume-templates/TemplateStartPhoto.jsx"></script>
+<script type="text/babel" src="../resume-templates/TemplateClean.jsx"></script>
+<script type="text/babel" src="../resume-templates/TemplateCompact.jsx"></script>
+<script type="text/babel" src="../resume-templates/TemplateOneColumn.jsx"></script>
+<script type="text/babel" src="../resume-templates/TemplateAcademic.jsx"></script>
+<script type="text/babel" src="../resume-templates/TemplateAccent.jsx"></script>
+<!-- website chrome + screens -->
+<script type="text/babel" src="chrome.jsx"></script>
+<script type="text/babel" src="Landing.jsx"></script>
+<script type="text/babel" src="Constructor.jsx"></script>
+<script type="text/babel" src="PhotoUpload.jsx"></script>
+<script type="text/babel" src="PreviewExport.jsx"></script>
+<script type="text/babel" src="Payment.jsx"></script>
+<script type="text/babel" src="Cabinet.jsx"></script>
+<script type="text/babel" src="Auth.jsx"></script>
+<script type="text/babel" src="PublicResume.jsx"></script>
+<script type="text/babel" src="Examples.jsx"></script>
+<script type="text/babel" src="Templates.jsx"></script>
+<script type="text/babel" src="ResumeBase.jsx"></script>
+<script type="text/babel" src="Articles.jsx"></script>
+<script type="text/babel" src="Faq.jsx"></script>
+<script type="text/babel" src="Support.jsx"></script>
+<script type="text/babel" src="AdminPanel.jsx"></script>
+<script type="text/babel" src="Error404.jsx"></script>
+
+<script type="text/babel">
+
+const { useState, useRef, useEffect } = React;
+
+const SCREENS = [
+{ id: 'landing', n: '1 · Лендинг', comp: 'Landing', states: [] },
+{ id: 'constructor', n: '2 · Конструктор', comp: 'Constructor', states: [['default', 'Обычный'], ['loading', 'Сохранение'], ['error', 'Ошибка сохр.']] },
+{ id: 'photo', n: '3 · Загрузка фото', comp: 'PhotoUpload', states: [['default', 'Обычный'], ['empty', 'Пусто'], ['loading', 'Обработка']] },
+{ id: 'preview', n: '4 · Превью + экспорт', comp: 'PreviewExport', states: [['default', 'Обычный'], ['loading', 'Загрузка'], ['error', 'Ошибка']] },
+{ id: 'payment', n: '5 · Оплата', comp: 'Payment', states: [['default', 'Флоу'], ['loading', 'Обработка'], ['error', 'Отклонён'], ['success', 'Успех']] },
+{ id: 'cabinet', n: '6 · Мои резюме', comp: 'Cabinet', states: [['default', 'Есть резюме'], ['empty', 'Пусто']] },
+{ id: 'auth', n: '7 · Вход', comp: 'Auth', states: [['default', 'Вход'], ['error', 'Ошибка'], ['loading', 'Загрузка'], ['recover', 'Восстановл.']] },
+{ id: 'public', n: '8 · Публичная ссылка', comp: 'PublicResume', states: [['free', 'Бесплатн. (24ч)'], ['paid', 'Платная']] },
+{ id: 'examples', n: '9 · Образцы резюме', comp: 'Examples', states: [['list', 'Каталог'], ['detail', 'Образец']] },
+{ id: 'templates', n: '10 · Шаблоны', comp: 'Templates', states: [['list', 'Витрина'], ['detail', 'Шаблон']] },
+{ id: 'base', n: '11 · База резюме', comp: 'ResumeBase', states: [['list', 'Каталог'], ['detail', 'Карточка']] },
+{ id: 'articles', n: '12 · Статьи', comp: 'Articles', states: [['list', 'Лента'], ['article', 'Статья']] },
+{ id: 'faq', n: '13 · FAQ', comp: 'Faq', states: [] },
+{ id: 'support', n: '14 · Поддержка', comp: 'Support', states: [['default', 'Форма'], ['success', 'Отправлено']] },
+{ id: 'admin', n: '15 · Кабинет админа', comp: 'AdminPanel', states: [['promo', 'Промокоды'], ['content', 'Контент']] },
+{ id: 'error404', n: '16 · 404', comp: 'Error404', states: [] }];
+
+
+function App() {
+  const [screenId, setScreenId] = useState('landing');
+  const [device, setDevice] = useState('desktop');
+  const [stateMap, setStateMap] = useState({});
+  const [scale, setScale] = useState(1);
+  const stageRef = useRef(null);
+
+  const screen = SCREENS.find((s) => s.id === screenId);
+  const state = stateMap[screenId] || (screen.states[0] ? screen.states[0][0] : 'default');
+  const Comp = window.SITE[screen.comp];
+
+  const LOGICAL_W = device === 'desktop' ? 1200 : 390;
+  const LOGICAL_H = device === 'desktop' ? 820 : 800;
+
+  useEffect(() => {
+    function fit() {
+      if (!stageRef.current) return;
+      const avail = stageRef.current.getBoundingClientRect();
+      const s = Math.min((avail.width - 48) / LOGICAL_W, (avail.height - 48) / LOGICAL_H, 1);
+      setScale(s > 0 ? s : 1);
+    }
+    fit();
+    window.addEventListener('resize', fit);
+    return () => window.removeEventListener('resize', fit);
+  }, [device, LOGICAL_W, LOGICAL_H]);
+
+  const go = (id) => {setScreenId(id);};
+  window.SITE.__navGo = go;
+  const remountKey = screenId + device + state;
+
+  return (
+    <div style={{ display: 'flex', height: '100vh' }}>
+      {/* Rail */}
+      <div style={{ width: 216, flexShrink: 0, background: '#fff', borderRight: '1px solid var(--line)', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+        <div style={{ padding: '16px 16px 12px', borderBottom: '1px solid var(--line)' }}>
+          <div style={{ fontFamily: 'var(--font-serif-display)', fontSize: 17, fontWeight: 700, color: 'var(--ink)' }}>Резюме Онлайн</div>
+          <div style={{ fontSize: 11.5, color: 'var(--ink-secondary)', marginTop: 2 }}>UI Kit · 16 экранов</div>
+        </div>
+        <div style={{ flex: 1, overflowY: 'auto', padding: 10 }}>
+          {SCREENS.map((s) =>
+          <div key={s.id} style={{ marginBottom: 2 }}>
+              <button onClick={() => setScreenId(s.id)} style={{ width: '100%', textAlign: 'left', background: s.id === screenId ? 'var(--brand-green-tint)' : 'transparent', color: s.id === screenId ? '#3F6B22' : 'var(--ink)', border: 'none', borderRadius: 8, padding: '9px 10px', fontSize: 13.5, fontWeight: s.id === screenId ? 700 : 500, cursor: 'pointer', fontFamily: 'var(--font-sans)' }}>{s.n}</button>
+              {s.id === screenId && s.states.length > 0 &&
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4, padding: '6px 8px 8px' }}>
+                  {s.states.map(([val, label]) =>
+              <button key={val} onClick={() => setStateMap({ ...stateMap, [screenId]: val })} style={{ fontSize: 11, fontWeight: state === val ? 700 : 500, color: state === val ? '#fff' : 'var(--ink-secondary)', background: state === val ? 'var(--brand-green)' : 'var(--bg-tint)', border: '1px solid ' + (state === val ? 'var(--brand-green)' : 'var(--line)'), borderRadius: 999, padding: '4px 9px', cursor: 'pointer', fontFamily: 'var(--font-sans)' }}>{label}</button>
+              )}
+                </div>
+            }
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Main */}
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', minWidth: 0 }}>
+        <div style={{ height: 52, flexShrink: 0, background: '#fff', borderBottom: '1px solid var(--line)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 20px' }}>
+          <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--ink)' }}>{screen.n.replace(/^\d+ · /, '')}</div>
+          <div style={{ display: 'inline-flex', background: 'var(--bg-tint)', border: '1px solid var(--line)', borderRadius: 999, padding: 3 }}>
+            {[['desktop', 'Десктоп'], ['mobile', 'Мобайл']].map(([k, l]) =>
+            <button key={k} onClick={() => setDevice(k)} style={{ fontSize: 12.5, fontWeight: 700, color: device === k ? '#fff' : 'var(--ink-secondary)', background: device === k ? 'var(--brand-green)' : 'transparent', border: 'none', borderRadius: 999, padding: '6px 16px', cursor: 'pointer', fontFamily: 'var(--font-sans)' }}>{l}</button>
+            )}
+          </div>
+        </div>
+
+        <div ref={stageRef} style={{ flex: 1, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 24 }}>
+          <div style={{ width: LOGICAL_W * scale, height: LOGICAL_H * scale, flexShrink: 0 }}>
+            <div style={{ width: LOGICAL_W, height: LOGICAL_H, transform: `scale(${scale})`, transformOrigin: 'top left', borderRadius: device === 'mobile' ? 34 : 14, overflow: 'hidden', background: '#fff', boxShadow: '0 18px 50px rgba(43,43,43,0.18)', border: device === 'mobile' ? '8px solid #2B2B2B' : '1px solid var(--line)' }}>
+              <div key={remountKey} style={{ width: '100%', height: '100%', overflowY: 'auto', overflowX: 'hidden' }}>
+                <Comp device={device} state={state} go={go} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>);
+
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

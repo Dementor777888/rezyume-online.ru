@@ -1,0 +1,40 @@
+{
+  "$description": "Резюме Онлайн — typography tokens. ВНИМАНИЕ: шрифты — Google Fonts substitutes (реальные файлы бренда не предоставлены). Golos Text ≈ интерфейсный sans, Playfair Display ≈ серифный логотип, PT Serif — шаблон «Академический».",
+  "fontFamily": {
+    "sans":           { "value": "'Golos Text', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", "usage": "весь интерфейс" },
+    "serif-display":  { "value": "'Playfair Display', Georgia, 'Times New Roman', serif", "usage": "логотип/wordmark, крупные display-цифры (404)" },
+    "serif-academic": { "value": "'PT Serif', Georgia, serif", "usage": "только шаблон резюме «Академический»" }
+  },
+  "fontSize": {
+    "xs":   { "value": "12px", "usage": "минимум для UI; мельче не использовать" },
+    "sm":   { "value": "14px" },
+    "base": { "value": "16px" },
+    "md":   { "value": "18px" },
+    "lg":   { "value": "22px" },
+    "xl":   { "value": "28px" },
+    "2xl":  { "value": "36px" },
+    "3xl":  { "value": "48px" }
+  },
+  "lineHeight": {
+    "tight":   { "value": 1.2,  "usage": "заголовки" },
+    "snug":    { "value": 1.35, "usage": "подзаголовки, карточки" },
+    "normal":  { "value": 1.5,  "usage": "body" },
+    "relaxed": { "value": 1.65, "usage": "длинные статьи" }
+  },
+  "fontWeight": {
+    "regular":  { "value": 400 },
+    "medium":   { "value": 500, "usage": "лейблы форм, навигация" },
+    "semibold": { "value": 600, "usage": "имена, ссылки-кнопки" },
+    "bold":     { "value": 700, "usage": "заголовки, CTA" }
+  },
+  "textStyles": {
+    "$note": "Фактическая шкала заголовков в UI-ките (десктоп / мобайл):",
+    "page-h1":    { "size": "30px / 24px", "weight": 700, "leading": 1.2 },
+    "hero-h1":    { "size": "44px / 30px", "weight": 700, "leading": 1.12, "letterSpacing": "-0.01em" },
+    "section-h2": { "size": "24px / 20px", "weight": 700 },
+    "card-title": { "size": "15.5–16px", "weight": 700 },
+    "body":       { "size": "14.5–16px", "weight": 400, "leading": 1.5 },
+    "meta":       { "size": "12–13px", "weight": 500, "color": "{neutral.ink-secondary}" },
+    "eyebrow":    { "size": "12.5px", "weight": 700, "transform": "uppercase", "letterSpacing": "0.05em" }
+  }
+}

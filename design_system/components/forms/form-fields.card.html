@@ -1,0 +1,37 @@
+<!-- @dsCard group="Components" viewport="700x420" name="Form fields" subtitle="Input, Select, Checkbox, Radio, Switch" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;background:var(--bg);}</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { Input, Select, Checkbox, Radio, Switch } = window.DesignSystem_7c7421;
+function Demo() {
+  const [gender, setGender] = React.useState('f');
+  const [kids, setKids] = React.useState(true);
+  const [current, setCurrent] = React.useState(false);
+  return (
+    <div style={{display:'flex', flexDirection:'column', gap:16, padding:20, maxWidth:340, fontFamily:'var(--font-sans)'}}>
+      <Input label="Имя и фамилия" placeholder="Екатерина Смирнова" />
+      <Select label="Занятость" placeholder="Выберите..." options={['Полная', 'Частичная', 'Проектная']} />
+      <div style={{display:'flex', gap:20}}>
+        <Radio label="Мужской" checked={gender==='m'} onChange={() => setGender('m')} />
+        <Radio label="Женский" checked={gender==='f'} onChange={() => setGender('f')} />
+      </div>
+      <Checkbox label="Есть дети" checked={kids} onChange={setKids} />
+      <Switch label="Работаю по настоящее время" checked={current} onChange={setCurrent} />
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!-- @dsCard group="Components" viewport="700x140" name="Tabs" subtitle="Underline nav tabs, matches site header" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;background:var(--bg);}</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { Tabs } = window.DesignSystem_7c7421;
+function Demo() {
+  const [active, setActive] = React.useState('Услуги');
+  return (
+    <div style={{padding:20, fontFamily:'var(--font-sans)'}}>
+      <Tabs items={['Услуги','Как это работает','Отзывы','Блог']} active={active} onChange={setActive} />
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+</script>
+</body>
+</html>

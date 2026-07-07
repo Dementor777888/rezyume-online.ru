@@ -1,0 +1,47 @@
+/* ===========================================================
+   РЕЗЮМЕ ОНЛАЙН — Color tokens
+   Source: brand spec pasted by stakeholder (2026-07-04).
+   Rule of thumb: yellow = action, green = brand/nav/success,
+   blue = illustration/avatar accents only — never UI buttons.
+   =========================================================== */
+:root {
+  /* ---- Brand ---- */
+  --brand-green: #7CB342;       /* saturated brand green */
+  --brand-green-light: #8BC34A; /* lighter green, hovers/illustration */
+  --brand-green-tint: #DCEDB9;  /* light green panel/background fill */
+  --brand-green-dark: #3F6B22;  /* dark green — the ONLY brand-green safe as a background under white text (5.6:1) */
+  --brand-yellow: #F5A623;      /* accent / CTA / checkmarks */
+  --brand-yellow-dark: #E0921A; /* CTA hover/press */
+  --brand-blue: #4A9FD4;        /* illustration & avatar accent — as background, pair ONLY with --brand-blue-deep text */
+  --brand-blue-tint: #E4F1F9;   /* light blue sidebar/panel bg — pairs with --ink (12:1) or --brand-blue-deep */
+  --brand-blue-deep: #2D6685;   /* readable blue for text/bars on --brand-blue-tint (5.3:1) — never raw --brand-blue for text */
+
+  /* ---- Neutrals / text ---- */
+  --ink: #2B2B2B;        /* primary text */
+  --ink-secondary: #5B6472; /* secondary text */
+  --line: #E4E7EC;       /* hairlines, dividers, input borders */
+  --bg: #FFFFFF;
+  --bg-tint: #F7FAF2;    /* faint green-white page background */
+
+  /* ---- Paid-tier accents (calm, non-brand) ----
+     Used only inside premium resume templates to visually
+     separate "paid" (restrained) from "free" (warm brand). */
+  --paid-blue: #2E5FE8;      /* text-safe on white (5.4:1) */
+  --paid-teal: #0E9C8A;      /* fills/bars only — 3.4:1 on white, NOT text-safe */
+  --paid-teal-deep: #0B7A6C; /* text-safe teal (5.2:1) — use for teal-accented text */
+  --paid-graphite: #374151;  /* text-safe on white (10:1) */
+
+  /* ---- Semantic aliases ---- */
+  --surface-page: var(--bg);
+  --surface-card: var(--bg);
+  --surface-sunken: var(--bg-tint);
+  --surface-brand-panel: var(--brand-green-tint);
+  --text-body: var(--ink);
+  --text-muted: var(--ink-secondary);
+  --text-on-brand: #FFFFFF;
+  --border-default: var(--line);
+  --action-default: var(--brand-yellow);
+  --action-hover: var(--brand-yellow-dark);
+  --action-text: #2B2B2B;
+  --success: var(--brand-green);
+}

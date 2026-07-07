@@ -1,0 +1,33 @@
+/* ===========================================================
+   РЕЗЮМЕ ОНЛАЙН — Spacing, radius & elevation tokens
+   8px base grid. Radii 8–12px. Shadows soft & airy (natural,
+   friendly character — never hard/dark).
+   =========================================================== */
+:root {
+  /* ---- Spacing scale (8px grid) ---- */
+  --space-1: 4px;   /* half-step, tight icon/text gaps */
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --space-7: 64px;
+  --space-8: 96px;
+
+  /* ---- Radius ---- */
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-pill: 999px;
+
+  /* ---- Elevation (soft, airy, natural — no hard drop shadows) ---- */
+  --shadow-sm: 0 1px 2px rgba(43, 43, 43, 0.06);
+  --shadow-md: 0 4px 16px rgba(43, 43, 43, 0.08);
+  --shadow-lg: 0 12px 32px rgba(43, 43, 43, 0.10);
+  --shadow-brand: 0 8px 24px rgba(124, 179, 66, 0.18);
+
+  /* ---- Motion ---- */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1); /* @kind other */
+  --duration-fast: 120ms; /* @kind other */
+  --duration-standard: 200ms; /* @kind other */
+}

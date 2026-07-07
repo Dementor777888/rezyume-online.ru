@@ -1,0 +1,57 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  role         String   @default("user")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  resumes Resume[]
+
+  @@index([email])
+}
+
+model Resume {
+  id       String  @id @default(cuid())
+  userId   String?
+  user     User?   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  tier   String @default("free")
+  status String @default("draft")
+  title  String @default("Моё резюме")
+
+  publicToken   String    @unique
+  editTokenHash String?   @unique
+  expiresAt     DateTime?
+
+  template String @default("start")
+  accent   String @default("blue")
+  data     String
+
+  pdfPath  String?
+  docxPath String?
+
+  isPublic                 Boolean   @default(false)
+  consentDistribution      Boolean   @default(false)
+  consentVersion           String?
+  consentAt                DateTime?
+  publicFieldsMask         String?
+  publishToBaseRequested   Boolean   @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@index([publicToken])
+  @@index([expiresAt])
+  @@index([tier, status])
+}

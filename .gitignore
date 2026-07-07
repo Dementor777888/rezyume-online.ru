@@ -1,0 +1,10 @@
+.env
+.env*.local
+node_modules/
+.npm-cache/
+.next/
+dist/
+coverage/
+storage/pdf/*.pdf
+prisma/*.db
+prisma/*.db-journal
