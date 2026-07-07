@@ -7,7 +7,7 @@ export default function FaqPage() {
       <section className="catalog-hero">
         <span className="eyebrow">FAQ</span>
         <h1>Частые вопросы</h1>
-        <p>Отдельная FAQ-страница по design_system, чтобы footer/header не вели в пустоту.</p>
+        <p>Всё о сервисе, оплате, форматах и приватности. Не нашли ответ — напишите в поддержку.</p>
       </section>
       <Section>
         <div className="faq-list">

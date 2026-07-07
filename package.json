@@ -8,6 +8,7 @@
     "lint": "eslint .",
     "typecheck": "next typegen && tsc --noEmit",
     "smoke-flow": "node scripts/smoke-flow.mjs",
+    "design:extract": "node scripts/extract-claude-design-screens.mjs",
     "ui-screenshots": "node scripts/ui-screenshots.mjs",
     "ui:screenshots": "node scripts/ui-screenshots.mjs",
     "prisma:generate": "prisma generate",

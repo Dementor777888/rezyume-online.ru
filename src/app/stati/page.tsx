@@ -8,8 +8,8 @@ export default function ArticlesPage() {
     <PageShell>
       <section className="catalog-hero">
         <span className="eyebrow">Статьи</span>
-        <h1>Блог о резюме и поиске работы</h1>
-        <p>Mock-контент для будущего редакторского раздела и SEO.</p>
+        <h1>Статьи и советы</h1>
+        <p>Как составить резюме, пройти собеседование и найти работу — коротко и по делу.</p>
       </section>
       <Section>
         <div className="content-grid">

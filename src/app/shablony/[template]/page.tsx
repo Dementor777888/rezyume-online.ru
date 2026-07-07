@@ -28,10 +28,10 @@ export default async function TemplateDetailPage({ params }: { params: Promise<{
             <dt>Лучше всего</dt>
             <dd>{template.bestFor}</dd>
             <dt>Статус</dt>
-            <dd>{template.tier === "free" ? "Доступен в бесплатном конструкторе" : "Preview-only · функционально подключим позже"}</dd>
+            <dd>{template.tier === "free" ? "Доступен в бесплатном конструкторе" : "Будет доступен в AI-версии за 99 ₽ один раз"}</dd>
           </dl>
           <Link className={template.tier === "free" ? "button" : "ghost-button"} href={template.tier === "free" ? "/constructor" : "/payment"}>
-            {template.tier === "free" ? "Создать с этим шаблоном" : "Открыть locked shell"}
+            {template.tier === "free" ? "Создать с этим шаблоном" : "Посмотреть AI-версию"}
           </Link>
           <Link className="secondary-button" href="/shablony">
             Все шаблоны

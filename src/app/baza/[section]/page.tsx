@@ -13,7 +13,7 @@ export default async function ResumeBaseSectionPage({ params }: { params: Promis
       <section className="catalog-hero">
         <span className="eyebrow">База резюме</span>
         <h1>{section.name}</h1>
-        <p>{section.intro}. Контакты скрыты, действия работодателя disabled.</p>
+        <p>{section.intro}. Контакты скрыты, доступ работодателя будет подключён отдельным этапом.</p>
       </section>
       <Section>
         <div className="resume-base-grid">
@@ -23,7 +23,7 @@ export default async function ResumeBaseSectionPage({ params }: { params: Promis
               <h3>{resume.position}</h3>
               <p>{resume.city} · опыт {resume.experience} · {resume.salary}</p>
               <button className="ghost-button" disabled type="button">
-                Показать контакты · locked
+                Показать контакты
               </button>
             </article>
           ))}

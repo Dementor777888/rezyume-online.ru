@@ -6,8 +6,8 @@ export default function NotFoundPage() {
     <PageShell>
       <section className="not-found">
         <span className="eyebrow">404</span>
-        <h1>Страница не найдена</h1>
-        <p>Возможно, ссылка устарела или маршрут ещё не подключён функционально.</p>
+        <h1>Такой страницы нет</h1>
+        <p>Возможно, ссылка устарела или страница была перемещена. Но резюме создать никуда не делось.</p>
         <Link className="button" href="/constructor">
           Создать резюме бесплатно
         </Link>

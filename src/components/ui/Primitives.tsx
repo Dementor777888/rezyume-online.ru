@@ -49,7 +49,7 @@ export function Checkbox({ label, ...props }: InputHTMLAttributes<HTMLInputEleme
 export function EmptyState({ title, text }: { title: string; text: string }) {
   return (
     <Card className="state-card">
-      <Badge tone="neutral">Empty state</Badge>
+      <Badge tone="neutral">Пусто</Badge>
       <h2>{title}</h2>
       <p>{text}</p>
     </Card>
@@ -59,7 +59,7 @@ export function EmptyState({ title, text }: { title: string; text: string }) {
 export function LoadingState({ title = "Загрузка" }: { title?: string }) {
   return (
     <Card className="state-card">
-      <Badge tone="neutral">Loading</Badge>
+      <Badge tone="neutral">Загрузка</Badge>
       <h2>{title}</h2>
       <p>Состояние подготовлено для будущего подключения данных.</p>
     </Card>
@@ -69,7 +69,7 @@ export function LoadingState({ title = "Загрузка" }: { title?: string })
 export function ErrorState({ title = "Что-то пошло не так" }: { title?: string }) {
   return (
     <Card className="state-card">
-      <Badge tone="warning">Error</Badge>
+      <Badge tone="warning">Ошибка</Badge>
       <h2>{title}</h2>
       <p>Показываем понятную ошибку, не раскрывая служебные детали.</p>
     </Card>

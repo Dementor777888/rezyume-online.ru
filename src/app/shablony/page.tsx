@@ -7,10 +7,10 @@ export default function TemplatesPage() {
     <PageShell>
       <section className="catalog-hero">
         <span className="eyebrow">Шаблоны</span>
-        <h1>7 визуальных шаблонов резюме</h1>
-        <p>Два бесплатных работают в Slice 1. Пять paid-пресетов показаны как locked preview без подключения оплаты.</p>
+        <h1>Шаблоны резюме</h1>
+        <p>Выберите оформление. Два шаблона бесплатны, остальные — в AI-версии за 99 ₽ один раз.</p>
       </section>
-      <Section title="Галерея" text="Каждый шаблон рендерится на едином Resume.data и ведёт на свою страницу.">
+      <Section title="Все шаблоны" text="Бесплатные варианты можно использовать сразу, закрытые пресеты доступны только как preview.">
         <div className="template-grid">
           {templates.map((template) => (
             <TemplateCard key={template.id} template={template} />

@@ -8,10 +8,10 @@ export default function ResumeBasePage() {
     <PageShell>
       <section className="catalog-hero">
         <span className="eyebrow">База резюме</span>
-        <h1>Витрина резюме с закрытыми контактами</h1>
-        <p>UI-раздел подготовлен на mock data. Работодательский доступ и раскрытие контактов не реализованы.</p>
+        <h1>База резюме</h1>
+        <p>Опубликованные резюме кандидатов. Контакты скрыты, публикация реальных данных возможна только по согласию.</p>
       </section>
-      <Section title="Разделы базы" text="Контакты скрыты. Публикация реальных резюме будет только по отдельному согласию.">
+      <Section title="Разделы базы" text="В Slice 1 это витрина на обезличенных данных без доступа работодателя и раскрытия контактов.">
         <div className="chip-row">
           {catalogSections.map((section) => (
             <Link className="secondary-button" href={`/baza/${section.slug}`} key={section.slug}>
@@ -27,14 +27,14 @@ export default function ResumeBasePage() {
               <p>{resume.city} · опыт {resume.experience} · {resume.salary}</p>
               <span>{resume.updatedAt}</span>
               <button className="ghost-button" disabled type="button">
-                Показать контакты · locked
+                Показать контакты
               </button>
             </article>
           ))}
         </div>
       </Section>
       <Section>
-        <LockedFeatureCard title="Доступ работодателя" text="Форма входа и раскрытие контактов будут подключены отдельным модулем с согласием пользователя." />
+        <LockedFeatureCard title="Доступ работодателя" text="Раскрытие контактов будет подключено отдельным модулем с согласием пользователя." />
       </Section>
     </PageShell>
   );

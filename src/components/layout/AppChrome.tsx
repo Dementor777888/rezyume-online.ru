@@ -4,11 +4,38 @@ import { Badge } from "@/components/ui/Primitives";
 
 const navItems = [
   ["Шаблоны", "/shablony"],
-  ["Примеры", "/primery"],
+  ["Образцы", "/primery"],
   ["База резюме", "/baza"],
   ["Статьи", "/stati"],
   ["FAQ", "/faq"],
   ["Поддержка", "/support"]
+] as const;
+
+const footerColumns = [
+  {
+    title: "Продукт",
+    links: [
+      ["Конструктор", "/constructor"],
+      ["Образцы резюме", "/primery"],
+      ["Шаблоны", "/shablony"]
+    ]
+  },
+  {
+    title: "Компания",
+    links: [
+      ["О сервисе", "/"],
+      ["Блог", "/stati"],
+      ["Контакты", "/support"]
+    ]
+  },
+  {
+    title: "Поддержка",
+    links: [
+      ["Частые вопросы", "/faq"],
+      ["Помощь", "/support"],
+      ["Политика данных", "/faq"]
+    ]
+  }
 ] as const;
 
 export function AppHeader() {
@@ -36,7 +63,7 @@ export function AppHeader() {
             Вход
           </Link>
           <Link className="button" href="/constructor">
-            Создать резюме бесплатно
+            Создать резюме
           </Link>
         </div>
       </div>
@@ -51,17 +78,23 @@ export function AppFooter() {
       <div className="app-footer__inner">
         <div>
           <strong>Резюме Онлайн</strong>
-          <p>Бесплатный конструктор резюме и будущий SaaS-каркас без скрытых подписок.</p>
+          <p>Ваш опыт — наши возможности. Красивое резюме бесплатно, AI-версия — 99 ₽ один раз.</p>
         </div>
-        <nav aria-label="Нижняя навигация">
-          {navItems.map(([label, href]) => (
-            <Link key={href} href={href}>
-              {label}
-            </Link>
+        <nav className="app-footer__columns" aria-label="Нижняя навигация">
+          {footerColumns.map((column) => (
+            <div className="app-footer__column" key={column.title}>
+              <span>{column.title}</span>
+              {column.links.map(([label, href]) => (
+                <Link key={`${column.title}-${label}-${href}`} href={href}>
+                  {label}
+                </Link>
+              ))}
+            </div>
           ))}
-          <Link href="/payment">AI-версия · UI-only</Link>
-          <Link href="/admin">Admin shell</Link>
         </nav>
+      </div>
+      <div className="app-footer__legal">
+        © 2026 Резюме Онлайн · Сервис создания резюме, который работает
       </div>
     </footer>
   );
@@ -107,11 +140,11 @@ export function Section({
 export function LockedFeatureCard({ title, text }: { title: string; text: string }) {
   return (
     <div className="locked-card">
-      <Badge tone="locked">Скоро будет</Badge>
+      <Badge tone="locked">Закрыто в Slice 1</Badge>
       <h3>{title}</h3>
       <p>{text}</p>
       <button className="ghost-button" disabled type="button">
-        Подключим позже
+        Будет доступно позже
       </button>
     </div>
   );
@@ -122,17 +155,17 @@ export function AdminShell({ title, children }: { title: string; children: React
     <PageShell>
       <section className="admin-layout">
         <aside className="admin-sidebar">
-          <strong>Admin shell</strong>
+          <strong>Кабинет админа</strong>
           <Link href="/admin">Dashboard</Link>
-          <Link href="/admin/promos">Промокоды mock</Link>
-          <Link href="/admin/content">Контент mock</Link>
-          <Link href="/admin/seo">SEO mock</Link>
+          <Link href="/admin/promos">Промокоды</Link>
+          <Link href="/admin/content">Контент</Link>
+          <Link href="/admin/seo">SEO</Link>
         </aside>
         <div className="admin-main">
           <div className="section-head">
-            <span className="eyebrow">UI-only</span>
+            <span className="eyebrow">Закрытый раздел</span>
             <h1>{title}</h1>
-            <p>Каркас админки без авторизации, write-actions и опасных API.</p>
+            <p>Визуальная зона управления контентом без авторизации, write-actions и опасных API.</p>
           </div>
           {children}
         </div>

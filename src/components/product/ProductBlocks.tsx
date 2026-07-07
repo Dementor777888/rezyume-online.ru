@@ -28,7 +28,7 @@ export function TemplateCard({ template }: { template: TemplateMeta }) {
           </Link>
         ) : (
           <Link className="ghost-button" href="/payment" aria-disabled="true">
-            Preview-only
+            Смотреть шаблон
           </Link>
         )}
       </div>

@@ -47,17 +47,17 @@ export default function HomePage() {
 
       <section className="hero">
         <div className="hero__copy">
-          <span className="eyebrow">Резюме Онлайн</span>
-          <h1>Красивое резюме — бесплатно</h1>
+          <span className="eyebrow">Бесплатно · без регистрации · AI-версия 99 ₽ один раз</span>
+          <h1>Создайте резюме, с которым проще пройти первый отбор</h1>
           <p>
-            Заполните резюме по шагам, сразу смотрите результат и скачайте PDF без регистрации. Бесплатная ссылка
-            активна 24 часа.
+            Бесплатно заполните данные вручную, сразу смотрите результат и скачайте резюме в PDF формате. Платное
+            усиление будет отдельным шагом: без подписки и без скрытых платежей.
           </p>
           <div className="hero__actions">
             <Link className="button button--large" href="/constructor">
               Создать резюме бесплатно
             </Link>
-            <span>6 шагов · PDF · публичная ссылка</span>
+            <span>PDF бесплатно · AI-версия 99 ₽ один раз · без подписки</span>
           </div>
         </div>
         <div className="hero-card" aria-label="Пример резюме">
@@ -78,7 +78,7 @@ export default function HomePage() {
             <MonitorSmartphone size={22} />
           </span>
           <strong>2. Посмотрите результат</strong>
-          <span>Live preview обновляется рядом с формой, чтобы Вы сразу видели резюме.</span>
+          <span>Предпросмотр обновляется рядом с формой, чтобы Вы сразу видели резюме.</span>
         </div>
         <div className="info-item">
           <span className="info-icon">
@@ -92,10 +92,10 @@ export default function HomePage() {
       <section className="landing-section" id="free" aria-label="Что входит бесплатно">
         <div className="section-head">
           <span className="eyebrow">Бесплатная версия</span>
-          <h2>Всё для первого результата</h2>
+          <h2>Заполните вручную и скачайте PDF сразу</h2>
           <p>
-            Конструктор сохраняет черновик в браузере, показывает резюме рядом с формой и создаёт публичную ссылку без
-            регистрации.
+            Бесплатный сценарий остаётся полноценным: два аккуратных шаблона, предпросмотр, черновик в браузере и
+            публичная ссылка на 24 часа.
           </p>
         </div>
         <div className="benefit-panel">
@@ -138,24 +138,28 @@ export default function HomePage() {
       <section className="landing-section" aria-label="Сравнение возможностей">
         <div className="section-head">
           <span className="eyebrow">Честная модель</span>
-          <h2>Бесплатное работает сейчас, locked — позже</h2>
+          <h2>Бесплатно — полноценное резюме. За 99 ₽ — AI-усиление</h2>
           <p>
-            Каркас показывает будущий продукт полностью, но не имитирует неготовые backend-сценарии.
+            В Slice 1 работает бесплатное создание резюме. Будущая AI-версия показана визуально, но платежи и закрытые
+            функции не подключены.
           </p>
         </div>
         <div className="comparison-grid">
           <div className="comparison-card">
-            <strong>Бесплатно</strong>
+            <strong>Бесплатно · 0 ₽</strong>
             <span>PDF, 2 шаблона, черновик в браузере, ссылка на 24 часа, без регистрации.</span>
             <Link className="secondary-button" href="/constructor">
-              Начать бесплатно
+              Заполнить вручную
             </Link>
           </div>
           <div className="comparison-card comparison-card--locked">
             <strong>AI-версия · 99 ₽ один раз</strong>
-            <span>5 дополнительных шаблонов, кабинет и расширенные функции показаны как locked UI.</span>
+            <span>
+              Все шаблоны, усиление текста, фото, DOCX, бессрочная ссылка и кабинет показаны как закрытые экраны без
+              backend-подключения.
+            </span>
             <Link className="ghost-button" href="/payment">
-              Посмотреть shell оплаты
+              Посмотреть AI-версию
             </Link>
           </div>
         </div>
@@ -164,7 +168,8 @@ export default function HomePage() {
       <section className="landing-section" aria-label="Шаблоны резюме">
         <div className="section-head">
           <span className="eyebrow">Шаблоны</span>
-          <h2>Все 7 пресетов уже представлены визуально</h2>
+          <h2>Выберите оформление резюме</h2>
+          <p>Два шаблона доступны бесплатно, остальные представлены как будущая AI-версия за 99 ₽ один раз.</p>
         </div>
         <div className="template-grid template-grid--landing">
           {templates.slice(0, 3).map((template) => (

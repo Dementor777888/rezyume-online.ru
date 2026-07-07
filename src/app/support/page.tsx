@@ -6,8 +6,8 @@ export default function SupportPage() {
     <PageShell>
       <section className="catalog-hero">
         <span className="eyebrow">Поддержка</span>
-        <h1>Помощь по резюме и PDF</h1>
-        <p>Форма визуальная: отправку сообщений и email-интеграции не подключаем в этом каркасе.</p>
+        <h1>Поддержка</h1>
+        <p>Поможем с оплатой, скачиванием, публикацией и любыми вопросами по сервису.</p>
       </section>
       <Section>
         <div className="support-grid">
@@ -19,7 +19,7 @@ export default function SupportPage() {
               Отправка будет подключена позже
             </button>
           </form>
-          <LockedFeatureCard title="Telegram bot" text="В design_system предусмотрена поддержка через бота. Подключение реального канала будет отдельным этапом." />
+          <LockedFeatureCard title="Telegram-бот поддержки" text="Подключение реального канала поддержки будет отдельным этапом." />
         </div>
       </Section>
     </PageShell>

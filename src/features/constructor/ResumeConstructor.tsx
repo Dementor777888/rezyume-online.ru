@@ -265,7 +265,7 @@ export function ResumeConstructor() {
           ) : null}
         </section>
 
-        <aside className="preview-sticky panel" aria-label="Live preview">
+        <aside className="preview-sticky panel" aria-label="Предпросмотр резюме">
           <ResumeTemplate data={previewData} mode="preview" />
         </aside>
       </div>
@@ -538,7 +538,7 @@ function TemplateStep({ data, setData }: { data: ResumeData; setData: Dispatch<S
         {lockedTemplates.map(([id, name]) => (
           <div className="template-lock-card" key={id}>
             <strong>{name}</strong>
-            <span>Preview-only · будет доступно на следующем этапе.</span>
+            <span>Будет доступно в AI-версии за 99 ₽ один раз.</span>
           </div>
         ))}
       </div>
