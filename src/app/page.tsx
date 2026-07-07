@@ -4,14 +4,16 @@ import {
   Clock3,
   Download,
   FileText,
-  Link as LinkIcon,
   MonitorSmartphone,
   PencilLine,
   ShieldCheck
 } from "lucide-react";
+import { AppFooter } from "@/components/layout/AppChrome";
+import { TemplateCard } from "@/components/product/ProductBlocks";
 import { SiteHeader } from "@/components/SiteHeader";
 import { ResumeTemplate } from "@/components/resume/ResumeTemplate";
 import { annaSokolovaFixture } from "@/lib/resume/fixtures";
+import { templates } from "@/lib/product/mock";
 
 const freeBenefits = ["PDF бесплатно", "Без регистрации", "Ссылка на 24 часа", "2 шаблона", "Черновик в браузере"];
 
@@ -133,6 +135,47 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="landing-section" aria-label="Сравнение возможностей">
+        <div className="section-head">
+          <span className="eyebrow">Честная модель</span>
+          <h2>Бесплатное работает сейчас, locked — позже</h2>
+          <p>
+            Каркас показывает будущий продукт полностью, но не имитирует неготовые backend-сценарии.
+          </p>
+        </div>
+        <div className="comparison-grid">
+          <div className="comparison-card">
+            <strong>Бесплатно</strong>
+            <span>PDF, 2 шаблона, черновик в браузере, ссылка на 24 часа, без регистрации.</span>
+            <Link className="secondary-button" href="/constructor">
+              Начать бесплатно
+            </Link>
+          </div>
+          <div className="comparison-card comparison-card--locked">
+            <strong>AI-версия · 99 ₽ один раз</strong>
+            <span>5 дополнительных шаблонов, кабинет и расширенные функции показаны как locked UI.</span>
+            <Link className="ghost-button" href="/payment">
+              Посмотреть shell оплаты
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="landing-section" aria-label="Шаблоны резюме">
+        <div className="section-head">
+          <span className="eyebrow">Шаблоны</span>
+          <h2>Все 7 пресетов уже представлены визуально</h2>
+        </div>
+        <div className="template-grid template-grid--landing">
+          {templates.slice(0, 3).map((template) => (
+            <TemplateCard key={template.id} template={template} />
+          ))}
+        </div>
+        <Link className="secondary-button" href="/shablony">
+          Открыть все шаблоны
+        </Link>
+      </section>
+
       <section className="faq-section" id="faq" aria-label="Частые вопросы">
         <div className="section-head">
           <span className="eyebrow">FAQ</span>
@@ -148,21 +191,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <footer className="site-footer">
-        <div>
-          <strong>Резюме Онлайн</strong>
-          <span>Бесплатный конструктор резюме для Slice 1</span>
-        </div>
-        <nav aria-label="Ссылки MVP">
-          <a href="#how">Как это работает</a>
-          <a href="#free">Бесплатно</a>
-          <a href="#faq">FAQ</a>
-          <Link href="/constructor">Конструктор</Link>
-        </nav>
-        <div className="footer-note">
-          <LinkIcon size={16} /> Публичная ссылка на бесплатное резюме активна 24 часа.
-        </div>
-      </footer>
+      <AppFooter />
     </main>
   );
 }

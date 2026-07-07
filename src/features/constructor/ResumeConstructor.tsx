@@ -505,6 +505,14 @@ function PhotoStep({ setData }: { setData: Dispatch<SetStateAction<ResumeData>> 
 }
 
 function TemplateStep({ data, setData }: { data: ResumeData; setData: Dispatch<SetStateAction<ResumeData>> }) {
+  const lockedTemplates = [
+    ["clean", "Чистый"],
+    ["compact", "Компакт"],
+    ["one_column", "Одна колонка"],
+    ["academic", "Академический"],
+    ["accent", "Акцент"]
+  ];
+
   return (
     <div className="form-grid">
       <label className="field full">
@@ -526,6 +534,14 @@ function TemplateStep({ data, setData }: { data: ResumeData; setData: Dispatch<S
           <option value="start_photo">Старт+фото</option>
         </select>
       </label>
+      <div className="template-lock-grid full">
+        {lockedTemplates.map(([id, name]) => (
+          <div className="template-lock-card" key={id}>
+            <strong>{name}</strong>
+            <span>Preview-only · будет доступно на следующем этапе.</span>
+          </div>
+        ))}
+      </div>
       <label className="consent-card full">
         <span>
           <input

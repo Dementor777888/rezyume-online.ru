@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
+import { PublicResumeView } from "@/components/product/ProductBlocks";
 import { SiteHeader } from "@/components/SiteHeader";
-import { ResumeTemplate } from "@/components/resume/ResumeTemplate";
 import { asResumeData, findPublicFreeResume } from "@/lib/resume/repository";
 
 export const dynamic = "force-dynamic";
@@ -14,8 +14,9 @@ export default async function PublicResumePage({ params }: { params: Promise<{ p
     return (
       <main className="page-shell">
         <SiteHeader />
-        <section className="hero" style={{ gridTemplateColumns: "1fr" }}>
-          <div>
+        <section className="public-page">
+          <div className="expired-card">
+            <span className="eyebrow">Публичная ссылка</span>
             <h1>Ссылка на резюме истекла</h1>
             <p>Бесплатная публичная ссылка действует 24 часа с момента создания резюме.</p>
           </div>
@@ -27,11 +28,12 @@ export default async function PublicResumePage({ params }: { params: Promise<{ p
   return (
     <main className="page-shell">
       <SiteHeader />
-      <section style={{ maxWidth: 980, margin: "0 auto", padding: "24px 20px 48px" }}>
-        <div className="panel" style={{ marginBottom: 18 }}>
-          Бесплатная ссылка активна до {result.resume.expiresAt?.toLocaleString("ru-RU")}.
+      <section className="public-page">
+        <div className="public-status">
+          <span className="eyebrow">Публичное резюме</span>
+          <strong>Бесплатная ссылка активна до {result.resume.expiresAt?.toLocaleString("ru-RU")}.</strong>
         </div>
-        <ResumeTemplate data={asResumeData(result.resume.data)} mode="public" />
+        <PublicResumeView data={asResumeData(result.resume.data)} />
       </section>
     </main>
   );

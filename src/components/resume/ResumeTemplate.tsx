@@ -157,8 +157,10 @@ function MainContent({ data }: { data: ResumeData }) {
 
 export function ResumeTemplate({ data, mode }: ResumeTemplateProps) {
   const showPhoto = data.preferences.template === "start_photo" && data.preferences.showPhoto;
+  const templateClass = `resume-template--${data.preferences.template}`;
+  const accentClass = `resume-accent--${data.preferences.accent}`;
   const content = (
-    <div className="resume-template">
+    <div className={`resume-template ${templateClass} ${accentClass}`}>
       <SideContent data={data} showPhoto={showPhoto} />
       <MainContent data={data} />
     </div>

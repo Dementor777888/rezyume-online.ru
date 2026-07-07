@@ -9,6 +9,7 @@
     "typecheck": "next typegen && tsc --noEmit",
     "smoke-flow": "node scripts/smoke-flow.mjs",
     "ui-screenshots": "node scripts/ui-screenshots.mjs",
+    "ui:screenshots": "node scripts/ui-screenshots.mjs",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "prisma:studio": "prisma studio"
